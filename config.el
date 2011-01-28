@@ -73,3 +73,5 @@
     (when file
       (find-file file))))
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
+
+(global-hl-line-mode t) ;; turn on line-highlight for all modes by default
