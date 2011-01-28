@@ -26,7 +26,7 @@
 (tooltip-mode -1)
 
 (set-frame-font "Menlo-14")
-(load-theme 'tango-dark)
+(load-theme 'tango)
 
 ;; load global helpers for some neat functions
 (load "helpers/global.el")
