@@ -6,12 +6,16 @@
 (setq ns-command-modifier 'meta)
 (setq mac-option-modifier 'super)
 
+;; Use the clipboard, pretty please, so that copy/paste "works"
+(setq x-select-enable-clipboard t)
+
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq-default tab-width 2)
 (setq js-indent-level 2)
 (setq-default indent-tabs-mode nil)
 (setq inhibit-startup-message t)
+(setq inhibit-splash-screen t)
 (setq ring-bell-function 'ignore)
 
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -54,11 +58,13 @@
 ;;;(define-key lisp-mode-shared-map (kbd "C-j") 'eval-last-sexp)
 
 ;;;;; these functions are found in helpers/global
-;;;(global-set-key (kbd "M-n") 'maximize-frame)
-;;;(global-set-key (kbd "M-N") 'ns-toggle-fullscreen)
-;;;(global-set-key (kbd "C-k") 'delete-whole-line)
-;;;(global-set-key (kbd "C-M-{") 'indent-buffer)
+(global-set-key (kbd "M-n") 'ns-toggle-fullscreen)
+(global-set-key (kbd "C-M-k") 'delete-whole-line)
+(global-set-key (kbd "C-M-{") 'indent-buffer)
 ;;;(global-set-key (kbd "C-;") 'swap-window-positions)
+
+;; 'maximize-frame currently kills kittens in my MacOSX 10.6
+;;(global-set-key (kbd "M-n") 'maximize-frame)
 
 (recentf-mode 1)
 (require 'ido)
@@ -75,3 +81,16 @@
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
 
 (global-hl-line-mode t) ;; turn on line-highlight for all modes by default
+
+;; Moving around in windows
+(windmove-default-keybindings 'meta)
+(setq windmove-wrap-around t)
+
+(winner-mode 1)
+
+(require 'ibuffer)
+(global-set-key "\C-x\C-b" 'ibuffer)
+
+;; use iswitchb-mode for C-x b
+(iswitchb-mode)
+

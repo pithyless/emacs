@@ -8,10 +8,18 @@
 (load "el-get-package-hooks.el")
 
 (setq el-get-sources
-      ;; '(el-get rainbow-mode
-      '((:name ruby-mode 
-         :type elpa
-         :after (lambda () (ruby-mode-hook)))
+      '(el-get 
+        rainbow-mode
+        auto-complete
+        switch-window
+        magit
+        goto-last-change
+
+        (:name buffer-move
+               :after (lambda () (buffer-move-hook)))
+        (:name ruby-mode 
+               :type elpa
+               :after (lambda () (ruby-mode-hook)))
         (:name inf-ruby  :type elpa)
         (:name ruby-compilation :type elpa)
         (:name css-mode 
