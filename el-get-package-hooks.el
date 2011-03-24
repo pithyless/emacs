@@ -23,7 +23,9 @@
   (require 'ruby-compilation)
   ;; (load "helpers/rails.el")
   ;; (define-key ruby-mode-map (kbd "M-r") 'run-rails-test-or-ruby-buffer)
-  ;; (define-key ruby-mode-map (kbd "C-l") 'insert-ruby-hash-pointer)
+  (define-key ruby-mode-map (kbd "M-l") 'insert-ruby-hash-pointer)
+  (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
+  (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)
 )))
 
 (defun rhtml-mode-hook ()
