@@ -30,7 +30,8 @@
 (tooltip-mode -1)
 
 (set-frame-font "Menlo-14")
-(load-theme 'tango)
+;; (load-theme 'tango)
+(load "elisp/emong-theme.el")
 
 ;; load global helpers for some neat functions
 (load "helpers/global.el")
@@ -94,3 +95,11 @@
 ;; use iswitchb-mode for C-x b
 (iswitchb-mode)
 
+;; PeepOpen
+(add-to-list 'load-path "~/.emacs.d/vendor")
+(require 'textmate)
+(require 'peepopen)
+(defun peepopen-bind-ns-keys ()
+  (define-key *textmate-mode-map* [(meta o)] 'peepopen-goto-file-gui))
+(textmate-mode)
+(setq ns-pop-up-frames nil)
